@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Titre par défaut{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <a href="/">🏠 Accueil</a>
+        <a href="/admin/">⚙️ Admin</a>
+        <a href="/api/">🔗 API REST</a>
+    </nav>
+    <main>
+        {% block content %} {% endblock %}
+    </main>
+</body>
+</html>
