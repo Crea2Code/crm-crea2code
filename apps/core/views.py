@@ -11,13 +11,7 @@ from .serializers import (
 )
 
 def home_view(request):
-    total_clients = Client.objects.count()
-    last_clients = Client.objects.order_by('-id')[:5]
-    context = {
-        "total_clients": total_clients,
-        "last_clients": last_clients
-    }
-    return render(request, "home.html", context)
+    return render(request, "index.html")
 
 class ClientViewSet(viewsets.ModelViewSet):
     queryset = Client.objects.all()

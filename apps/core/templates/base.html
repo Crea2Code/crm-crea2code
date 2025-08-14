@@ -1,17 +1,31 @@
-<!DOCTYPE html>
+{% load static %}
+
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Titre par défaut{% endblock %}</title>
+    <title>{% block title %}CRM{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'assets/vendor/css/core.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/vendor/css/theme-default.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/demo.css' %}">
 </head>
 <body>
-    <nav>
-        <a href="/">🏠 Accueil</a>
-        <a href="/admin/">⚙️ Admin</a>
-        <a href="/api/">🔗 API REST</a>
-    </nav>
-    <main>
-        {% block content %} {% endblock %}
-    </main>
+
+<!-- Menu -->
+<aside>
+    <ul>
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        <li><a href="/api/">API</a></li>
+        <li><a href="{% url 'home' %}">Accueil</a></li>
+    </ul>
+</aside>
+
+<!-- Contenu -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<script src="{% static 'assets/vendor/js/core.js' %}"></script>
+<script src="{% static 'assets/vendor/js/menu.js' %}"></script>
+{% block scripts %}{% endblock %}
 </body>
 </html>
